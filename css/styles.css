@@ -1,0 +1,24 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    border: 3px solid red;
+}
+
+button {
+    font-size: 48px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.rock {
+    background-color: red;
+}
+
+.paper {
+    background-color: pink;
+}
+
+.scissors {
+    background-color: slateblue;
+}
