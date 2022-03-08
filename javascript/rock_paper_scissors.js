@@ -12,8 +12,8 @@ function computerPlay() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
+function playRound(playerSelection) {
+    let computerSelection = computerPlay();
     
     if (playerSelection === computerSelection) {
         return "tied"
@@ -72,4 +72,17 @@ function game() {
     }
 }
 
-game()
+const buttonRock = document.querySelector("button.rock");
+buttonRock.addEventListener("click", () => {
+    playRound("rock");
+});
+
+const buttonPaper = document.querySelector("button.paper");
+buttonPaper.addEventListener("click", () => {
+    playRound("paper");
+});
+
+const buttonScissors = document.querySelector("button.scissors");
+buttonScissors.addEventListener("click", () => {
+    playRound("scissors");
+});
