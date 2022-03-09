@@ -12,8 +12,7 @@ function computerPlay() {
     }
 }
 
-function playRound(playerSelection) {
-    let computerSelection = computerPlay();
+function playRound(playerSelection, computerSelection) {
     
     if (playerSelection === computerSelection) {
         return "tied"
@@ -72,17 +71,70 @@ function game() {
     }
 }
 
+let computerSelection, playerSelection;
+let computerScore = 0;
+let playerScore = 0;
+
 const buttonRock = document.querySelector("button.rock");
 buttonRock.addEventListener("click", () => {
-    playRound("rock");
+    computerSelection = computerPlay();
+    playerSelection = "rock";
+
+    let result = playRound("rock", computerSelection);
+    
+    if (result === "tied") {
+        computerScore += 1;
+        playerScore += 1;
+    }
+    else if (result === "you") {
+        playerScore += 1;
+    }
+    else {
+        computerScore += 1;
+    }
+    console.log("The Computer is " + computerSelection + " and the player is rock.");
+    console.log("The computer is " + computerScore + " and the player is " + playerScore + ".");
 });
 
 const buttonPaper = document.querySelector("button.paper");
 buttonPaper.addEventListener("click", () => {
-    playRound("paper");
+    computerSelection = computerPlay();
+    playerSelection = "paper";
+    
+    let result = playRound("paper", computerSelection);
+    
+    if (result === "tied") {
+        computerScore += 1;
+        playerScore += 1;
+    }
+    else if (result === "you") {
+        playerScore += 1;
+    }
+    else {
+        computerScore += 1;
+    }
+    console.log("The Computer is " + computerSelection + " and the player is paper.");
+    console.log("The computer is " + computerScore + " and the player is " + playerScore + ".");
 });
 
 const buttonScissors = document.querySelector("button.scissors");
 buttonScissors.addEventListener("click", () => {
-    playRound("scissors");
+    computerSelection = computerPlay();
+    playerSelection = "scissors";
+    
+    let result = playRound("scissors", computerSelection);
+    
+    if (result === "tied") {
+        computerScore += 1;
+        playerScore += 1;
+    }
+    else if (result === "you") {
+        playerScore += 1;
+    }
+    else {
+        computerScore += 1;
+    }
+    console.log("The Computer is " + computerSelection + " and the player is scissors.");
+    console.log("The computer is " + computerScore + " and the player is " + playerScore + ".");
 });
+
